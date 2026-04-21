@@ -19,6 +19,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class TokenFilter extends OncePerRequestFilter {
@@ -64,7 +65,8 @@ public class TokenFilter extends OncePerRequestFilter {
                         Result result = Result.builder().code(903).msg("请求Token错误").build();
                         response.getWriter().write(JSONUtil.toJsonStr(result));
                     } else {
-                        //token验证通过了，
+                        //token验证通过了，给token进行续期
+                        redisTemplate.expire(Constant.REDIS_TOKEN_KEY + userId, 30L, TimeUnit.MINUTES);
                         //要在spring security的上下文中放置一个认证对象，这样的话，spring security在执行后续的Filter的时候，才知道这个人是登录了的
                         UsernamePasswordAuthenticationToken authenticationToken
                                 = new UsernamePasswordAuthenticationToken(tUser, null, tUser.getAuthorities());

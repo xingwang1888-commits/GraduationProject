@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bjpowernode.mapper.TSystemInfoMapper">
+<mapper namespace="com.gdpu.mapper.TSystemInfoMapper">
   <resultMap id="BaseResultMap" type="com.gdpu.entity.TSystemInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="system_code" jdbcType="VARCHAR" property="systemCode" />
