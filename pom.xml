@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.bjpowernode</groupId>
+    <groupId>com.gdpu</groupId>
     <artifactId>dlyk-server</artifactId>
     <version>1.0.0</version>
 
